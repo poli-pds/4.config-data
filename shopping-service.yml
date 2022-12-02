@@ -3,6 +3,12 @@ spring:
     name: shopping-service
   profiles:
     active: dev
+  boot:
+    admin:
+      client:
+        url: http://localhost:9020
+        instance:
+          name: Shopping API Service
 server:
   servlet:
     context-path: /store/api/v1
@@ -19,3 +25,11 @@ feign:
       default:
         connectTimeout: 5000
         readTimeout: 5000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
